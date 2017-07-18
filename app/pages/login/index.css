@@ -1,0 +1,6 @@
+body {
+  color: red;
+  background: blue;
+
+  background: url('./../../assets/bg.jpg');
+}
