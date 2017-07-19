@@ -6,7 +6,7 @@
 3. 配置 .babelrc 文件，应用 plugins ：`{ "presets": ["env"] }`
 4. 安装 react 编译工具依赖：`npm install --save-dev babel-cli babel-preset-react`
 5. 在 .babelrc 中添加 react plugin ：`{ "presets": ["env", "react"] }`
-6. 安装 HTML Webpack Plugin ，用来将生成的 bundle assets 集成到 html 文件中：`npm i --save-dev html-webpack-plugin`
+6. 安装 HTML Webpack Plugin ，用来将生成的 bundle images 集成到 html 文件中：`npm i --save-dev html-webpack-plugin`
 7. 安装 webpack-dev-server ，创建前端服务：`npm i --save-dev webpack-dev-server`
 8. 安装 style-loader ，用来将 css 文件插入到 DOM 中 style 标签内：`npm install --save-dev style-loader`
   a. 需要与 css-loader 配合使用

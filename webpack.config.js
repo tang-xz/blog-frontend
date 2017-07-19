@@ -57,8 +57,12 @@ module.exports = {
   },
   resolve: {
     alias: {
-      assets: path.join(DIR.APP, '/assets'),
+      images: path.join(DIR.APP, '/images'),
       pages: path.join(DIR.APP, '/pages'),
+      components: path.join(DIR.APP, '/components'),
+      fonts: path.join(DIR.APP, '/fonts'),
+      utils: path.join(DIR.APP, '/utils'),
+      config: path.join(DIR.APP, '/config'),
     },
   },
   plugins: [
