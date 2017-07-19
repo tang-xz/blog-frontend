@@ -43,7 +43,7 @@ module.exports = {
         }),
       },
       {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
         use: [
           {
             loader: 'url-loader',
@@ -56,10 +56,7 @@ module.exports = {
     ],
   },
   resolve: {
-    alias: {
-      assets: path.join(DIR.APP, '/assets'),
-      pages: path.join(DIR.APP, '/pages'),
-    },
+    alias: {},
   },
   plugins: [
     htmlWebpack,

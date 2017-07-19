@@ -1,2 +1,3 @@
-# blog-frontend
-blog frontend project
+# single component environment
+
+use to develop single component
