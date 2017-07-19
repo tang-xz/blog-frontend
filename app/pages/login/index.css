@@ -1,6 +1,11 @@
 body {
-  color: red;
-  background: blue;
+  background: url('assets/bg.jpg');
+}
 
-  background: url('./../../assets/bg.jpg');
+.container {
+  color: red;
+
+  .name {
+    color: yellow;
+  }
 }
