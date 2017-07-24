@@ -17,3 +17,10 @@
   b. url-loader 是对 file-loader 的封装，可以将小于某一阈值的文件转换成 baseURL 格式直接嵌入文件中
 11. 安装 extract-text-webpack-plugin ，将 css 文件内容抽取出来独立合并到一个文件中（对比与 style-loader 方式直接插入 header 中）：`npm i --save-dev extract-text-webpack-plugin`
 12. 安装 less-loader ，注意单独安装 less 作为依赖（好处是可以做到版本控制）， `npm install --save-dev less-loader less`
+13. 安装 react-router，react-router-dom 处理路由
+
+
+
+
+
+## 其他
