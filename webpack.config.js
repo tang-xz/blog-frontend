@@ -17,6 +17,21 @@ const extractText = new ExtractTextPlugin({
 });
 
 module.exports = {
+  devServer: {
+    // config reserve proxy to backend server
+    proxy: {
+      '/': {
+        target: 'http://localhost:8001',
+        secure: false,
+        bypass: function(req, res, proxyOptions) {
+          if (req.headers.accept.indexOf('html') !== -1) {
+            console.log('Skipping proxy for browser request.');
+            return '/index.html';
+          }
+        }
+      }
+    }
+  },
   entry: path.resolve(DIR.APP, 'index.js'),
   output: {
     path: path.resolve(DIR.ROOT, 'dist'),
