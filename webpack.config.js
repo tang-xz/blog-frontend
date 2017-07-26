@@ -12,12 +12,34 @@ const htmlWebpack = new HtmlWebpackPlugin({
   filename: 'index.html',
   inject: 'body',
 });
-const extractText = new ExtractTextPlugin({
-  filename: '[name]_[id]_[contenthash:base64:5].css'
-});
 
 module.exports = {
-  entry: path.resolve(DIR.APP, 'index.js'),
+  devServer: {
+    port: 8001,
+    inline: true,
+    // enable open browser or not
+    open: true,
+    // opens the page in default browser
+    openPage: '',
+    // controls the console log messages shown in the browser. Use error, warning, info or none.
+    clientLogLevel: 'none',
+    // only errors & warns on hot reload
+    noInfo: true,
+  },
+  entry: {
+    app: [
+      // use for react state update without page reload
+      'react-hot-loader/patch',
+      path.resolve(DIR.APP, 'index.js'),
+    ]
+  },
+  entry: {
+    app: [
+      // use for react state update without page reload
+      'react-hot-loader/patch',
+      path.resolve(DIR.APP, 'index.js'),
+    ]
+  },
   output: {
     path: path.resolve(DIR.ROOT, 'dist'),
     publicPath: "",
@@ -28,19 +50,18 @@ module.exports = {
       { test: /\.jsx?$/, exclude: /node_modules/, loader: "babel-loader" },
       {
         test: /\.[less|css]+$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [{
-            loader: "css-loader",
-            options: {
-              modules: true,
-              localIdentName: '[path][name]__[local]--[hash:base64:5]',
-              importLoaders: 1,
-            }
-          }, {
-            loader: 'less-loader',
-          }]
-        }),
+        use: [{
+          loader: 'style-loader',
+        }, {
+          loader: 'css-loader',
+          options: {
+            modules: true,
+            localIdentName: '[path][name]__[local]--[hash:base64:5]',
+            importLoaders: 1,
+          }
+        }, {
+          loader: 'less-loader',
+        }]
       },
       {
         test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
@@ -60,6 +81,5 @@ module.exports = {
   },
   plugins: [
     htmlWebpack,
-    extractText,
   ]
 };
