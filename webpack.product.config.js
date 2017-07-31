@@ -68,7 +68,7 @@ module.exports = {
       components: path.join(DIR.APP, '/components'),
       fonts: path.join(DIR.APP, '/fonts'),
       utils: path.join(DIR.APP, '/utils'),
-      config: path.join(DIR.APP, '/config'),
+      tools: path.join(DIR.APP, '/tools'),
     },
   },
   plugins: [
