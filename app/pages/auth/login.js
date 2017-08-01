@@ -1,11 +1,9 @@
 import React from 'react'
-import {request} from 'tools'
+import {request, auth} from 'tools'
 import css from './login.css'
-
 export default class Login extends React.Component {
   constructor(props) {
     super(props)
-  
     this.state = {
       username: 'admin',
       password: '123456',
@@ -16,21 +14,25 @@ export default class Login extends React.Component {
       [e.target.name]: e.target.value.trim(),
     })
   }
+  goNextPage() {
+    if (this.props.location.state) {
+      this.props.history.push(this.props.location.state.from)
+    } else {
+      this.props.history.push('/')
+    }
+  }
   onSubmit(e) {
     e.preventDefault()
-
     if (this.state.username && this.state.password) {
       // todo
       request('http://127.0.0.1:3000/auth/login', {
         method: 'POST',
-        headers: {
-          "Content-Type": "application/json",
-        },
         // 默认每个请求携带本地cookie
         credentials: 'include',
         body: JSON.stringify(this.state),
       }).then(data=>{
-        console.log('data is: ', data);
+        auth.login();
+        this.goNextPage()
       }).catch(error=>{
         console.log(12, 'error is: ', error.message, error.status);
       })
