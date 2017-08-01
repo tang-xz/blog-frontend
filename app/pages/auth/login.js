@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {request} from 'tools'
 import css from './login.css'
 
 export default class Login extends React.Component {
@@ -21,7 +21,7 @@ export default class Login extends React.Component {
 
     if (this.state.username && this.state.password) {
       // todo
-      fetch('http://127.0.0.1:3000/auth/login', {
+      request('http://127.0.0.1:3000/auth/login', {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
@@ -29,12 +29,11 @@ export default class Login extends React.Component {
         // 默认每个请求携带本地cookie
         credentials: 'include',
         body: JSON.stringify(this.state),
-      }).then(response=>{
-        console.log('response: ', response);
+      }).then(data=>{
+        console.log('data is: ', data);
       }).catch(error=>{
-        console.log('error is: ');
-        console.error(error)
-      }) 
+        console.log(12, 'error is: ', error.message, error.status);
+      })
     } else {
       alert('Username and password should not be empty!');
     }
