@@ -31,6 +31,7 @@ export default class Root extends React.Component {
         <div>
           <Switch>
             <PrivateRoute exact path="/" component={Homepage}/>
+            <PrivateRoute exact path="/test" render={()=>(<div>test page</div>)}/>
             <Route path="/login" component={Login}/>
             <Route path="/register" component={Register}/>
             <PrivateRoute component={NotFound}/>

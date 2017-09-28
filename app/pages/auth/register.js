@@ -26,9 +26,7 @@ export default class Register extends React.Component {
         credentials: 'include',
         body: JSON.stringify(this.state),
       }).then(data=>{
-        console.log('data is: ', data);
-      }).catch(error=>{
-        console.log(12, 'error is: ', error.message, error.status);
+        this.props.history.push('/')
       })
     } else {
       alert('Username and password should not be empty!');

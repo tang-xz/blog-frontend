@@ -33,8 +33,6 @@ export default class Login extends React.Component {
       }).then(data=>{
         auth.login();
         this.goNextPage()
-      }).catch(error=>{
-        console.log(12, 'error is: ', error.message, error.status);
       })
     } else {
       alert('Username and password should not be empty!');
